@@ -7,13 +7,15 @@ import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { NavBarComponent } from './navBar/navBar.component';
 import { IonicModule } from '@ionic/angular';
+import { SignupComponent } from './signup/signup.component';
 
 @NgModule({
-  declarations: [
+  declarations: [	
     AppComponent,
       LoginComponent,
       HomeComponent,
-      NavBarComponent
+      NavBarComponent,
+      SignupComponent
    ],
   imports: [
     BrowserModule,

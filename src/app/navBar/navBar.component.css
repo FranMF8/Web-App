@@ -1,0 +1,121 @@
+nav {
+  background-color: #f8f8f8;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  transition: background-color 0.4s ease;
+  text-decoration: none;
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+nav ul li {
+  margin-right: 10px;
+  cursor: pointer;
+  font-size: 20px;
+  border-radius: 5px;
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+  padding: 5px 10px;
+  text-decoration: none;
+  position: relative; /* Agregado para posicionar el recuadro */
+}
+
+nav ul li.active {
+  font-weight: bold;
+}
+
+.dark-mode-toggle {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+}
+
+.dark-mode-toggle i {
+  font-size: 24px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.dark-mode-toggle i.fa-sun {
+  color: #f5c400;
+}
+
+.dark-mode-toggle i.fa-moon {
+  color: #999;
+}
+
+nav.dark-mode {
+  background-color: #5e549f;
+  color: #fff;
+  text-decoration: none;
+}
+
+nav.light-mode ul li.active {
+  color: #000;
+  background-color: #5e549f;
+  text-decoration: none;
+  text-align: center;
+  box-shadow: inset 0 0 10px #f8a100;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+nav.dark-mode ul li.active {
+  color: #fff;
+  background-color: gray;
+  text-decoration: none;
+  box-shadow: inset 0 0 10px #f8a100;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+nav.dark-mode li.active a {
+  color: #fff;
+  text-decoration: none;
+  margin: 0px auto;
+}
+
+nav.light-mode li.active a {
+  color: #000;
+  text-decoration: none;
+  margin: 0px auto;
+}
+
+nav.dark-mode li a {
+  color: #fff;
+  text-decoration: none;
+  margin: 0px auto;
+}
+
+nav.light-mode li a {
+  color: #000;
+  text-decoration: none;
+  margin: 0px auto;
+}
+
+nav.light-mode li.active::before,
+nav.dark-mode li.active::before {
+  color: #fff;
+  content: "";
+  display: inline-block;
+  width: 4px;
+  height: 100%;
+  background-color: #ddd;
+  position: absolute;
+  left: 0;
+  top: 0;
+  transition: transform 0.5s ease;
+  transform: scaleX(0);
+  transform-origin: left;
+}
+
+nav.light-mode ul li.active:hover::before,
+nav.light-mode ul li.active:focus::before,
+nav.dark-mode ul li.active:hover::before,
+nav.dark-mode ul li.active:focus::before {
+  transform: scaleX(1);
+}

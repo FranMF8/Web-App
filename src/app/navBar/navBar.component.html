@@ -1,0 +1,19 @@
+<nav class="light-mode">
+  <ul>
+    <li [ngClass]="{ active: activeTab === 'home' }" (click)="onItemClick(homeNavItem)" #homeNavItem>
+      <a [routerLink]="['/']">Home</a>
+      <span id="navHome" class="nav-highlight" [ngClass]="{ 'slide-left': activeTab === 'home' }"></span>
+    </li>
+    <li [ngClass]="{ active: activeTab === 'login' }" (click)="onItemClick(loginNavItem)" #loginNavItem>
+      <a [routerLink]="['/login']">Login</a>
+      <span id="navLogin" class="nav-highlight" [ngClass]="{ 'slide-left': activeTab === 'login' }"></span>
+    </li>
+  </ul>
+  <div class="dark-mode-toggle" (click)="toggleDarkMode()">
+    <i [ngClass]="{ 'fa-sun': !darkMode, 'fa-moon': darkMode }" class="fas"></i>
+  </div>
+</nav>
+
+
+
+

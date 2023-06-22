@@ -1,24 +1,24 @@
 <div class="body-container">
-<div class="center">
-  <h1>Login</h1>
-  <form action="/api/login" method="post">
-    <div class="txt-field">
-      <input type="text" required>
-      <span></span>
-      <label>Username</label>
-    </div>
+  <div class="center">
+    <h1>Login</h1>
+    <form>
+      <div class="txt-field">
+        <input type="text" required>
+        <span></span>
+        <label>Email</label>
+      </div>
 
-    <div class="txt-field">
-      <input type="password" required>
-      <span></span>
-      <label>Password</label>
-    </div>
+      <div class="txt-field">
+        <input type="password" required>
+        <span></span>
+        <label>Password</label>
+      </div>
 
-    <div class="pass">Forgot Password?</div>
-    <input type="submit" value="Login">
-    <div class="signup-link">
-     Not a member? <a [routerLink]="['/signup']">Signup</a>
-    </div>
-  </form>
-</div>
+      <div class="pass">Forgot Password?</div>
+      <input class="login-button" type="button" value="Create account">
+      <div class="signup-link">
+        Not a member? <a [routerLink]="['/signup']">Signup</a>
+      </div>
+    </form>
+  </div>
 </div>

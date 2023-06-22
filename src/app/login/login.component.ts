@@ -1,17 +1,20 @@
 import { Component, OnInit } from '@angular/core';
-//import { ApiService } from 'src/services/api.service';
+import { HttpClient } from '@angular/common/http';
+import { LoginService } from '../Services/login.service';
 
 @Component({
-  selector: 'login-component',
+  selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css'],
+  styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  //constructor(private apiService: ApiService) {}
+  url: string = 'https://localhost:7117/';
 
-  url: String = "aaaaaaaa";
+  constructor(private loginService: LoginService) {
 
-  ngOnInit() {
+   }
 
+  ngOnInit(): void {
+      this.loginService.getUser().then(console.log);
   }
 }

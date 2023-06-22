@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -10,7 +12,7 @@ import { IonicModule } from '@ionic/angular';
 import { SignupComponent } from './signup/signup.component';
 
 @NgModule({
-  declarations: [	
+  declarations: [
     AppComponent,
       LoginComponent,
       HomeComponent,
@@ -21,6 +23,8 @@ import { SignupComponent } from './signup/signup.component';
     BrowserModule,
     AppRoutingModule,
     IonicModule.forRoot(),
+    ReactiveFormsModule,
+    HttpClientModule
 
   ],
   providers: [],

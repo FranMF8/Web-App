@@ -6,34 +6,34 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
   styleUrls: ['./navBar.component.css']
 })
 export class NavBarComponent implements OnInit {
-
   @ViewChild('navHighlight') navHighlight!: ElementRef;
 
   activeNavItem!: HTMLElement | null;
   prevActiveNavItem!: HTMLElement | null;
 
+  activeTab: string = 'home';
+  darkMode: boolean = false;
+
   constructor() { }
 
-  activeTab: string = 'home';
-darkMode: boolean = false;
-
-changeTab(tab: string) {
-  this.activeTab = tab;
-  // Aquí puedes agregar lógica adicional al cambiar de pestaña
-}
-
-toggleDarkMode() {
-  this.darkMode = !this.darkMode;
-  const nav = document.querySelector('nav');
-  if (nav) {
-    nav.classList.toggle('dark-mode');
+  changeTab(tab: string) {
+    this.activeTab = tab;
+    // Aquí puedes agregar lógica adicional al cambiar de pestaña
   }
 
-}
+  toggleDarkMode() {
+    this.darkMode = !this.darkMode;
+    const nav = document.querySelector('nav');
+    if (nav) {
+      nav.classList.toggle('dark-mode');
+    }
+    // Aquí puedes agregar lógica adicional al cambiar el modo oscuro
+  }
 
-  // Aquí puedes agregar lógica adicional al cambiar el modo oscuro
   ngOnInit() {
-    this.activeNavItem = document.querySelector('.nav-item.active');
+    if (this.activeNavItem != null) {
+      this.activeNavItem = document.querySelector('.nav-item.active');
+    }
   }
 
   onItemClick(item: HTMLElement): void {
@@ -59,4 +59,4 @@ toggleDarkMode() {
       }
     }
   }
-  }
+}

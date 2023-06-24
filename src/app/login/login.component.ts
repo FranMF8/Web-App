@@ -1,6 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { User } from '../Models/user.model';
+import { Component, ElementRef, OnInit, ViewChild, Renderer2 } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { LoginService } from '../Services/login.service';
+import { Injectable } from "@angular/core";
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -8,13 +11,35 @@ import { LoginService } from '../Services/login.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  url: string = 'https://localhost:7117/';
+  public requestForm!: FormGroup;
+  public errorMessage!: string;
 
-  constructor(private loginService: LoginService) {
-
-   }
+  constructor(private loginService: LoginService, private fb: FormBuilder) { }
 
   ngOnInit(): void {
-      this.loginService.getUser().then(console.log);
+      this.requestForm = this.createMyForm();
+      this.loginService.getUser().subscribe( response => {
+        console.log(response)
+      });
+  }
+
+  public Login(newUser: any): void {
+    this.loginService.logUser(newUser).subscribe( response => {
+      console.log(response)
+    }, (error) => {
+      this.errorMessage = error.message;
+    })
+   }
+
+  private createMyForm(): FormGroup {
+    return this.fb.group({
+      email: [],
+      password: []
+    })
+  }
+
+  public submitForm() {
+    console.log(this.requestForm.value);
+    this.Login(this.requestForm.value);
   }
 }

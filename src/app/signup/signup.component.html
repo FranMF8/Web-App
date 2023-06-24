@@ -1,19 +1,28 @@
 <div class="body-container">
   <div class="center">
     <h1>Sign Up</h1>
-    <form action="/api/signup" method="post">
+    <form [formGroup]="requestForm" (ngSubmit)="submitForm()">
       <div class="txt-field">
-        <input type="text" required>
+        <input  formControlName="email" type="text" required>
         <span></span>
-        <label>Username</label>
+        <label>Email</label>
       </div>
 
       <div class="txt-field">
-        <input type="password" required>
+        <input formControlName="password" type="password" required>
         <span></span>
         <label>Password</label>
       </div>
-      <input type="submit" value="Create account">
+      <div class="txt-field">
+        <input formControlName="controlPassword" type="password" required>
+        <span></span>
+        <label>Repeat password</label>
+      </div>
+      <button class="login-button">Create Account</button>
+      <div class="signup-link">
+        Already a member? <a [routerLink]="['/login']">Sign In</a>
+      </div>
     </form>
+    <div *ngIf="errorMessage != null">{{errorMessage}}</div>
   </div>
   </div>

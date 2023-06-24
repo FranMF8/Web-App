@@ -1,24 +1,25 @@
 <div class="body-container">
   <div class="center">
     <h1>Login</h1>
-    <form>
+    <form [formGroup]="requestForm" (ngSubmit)="submitForm()">
       <div class="txt-field">
-        <input type="text" required>
+        <input formControlName="email" type="text" required>
         <span></span>
         <label>Email</label>
       </div>
 
       <div class="txt-field">
-        <input type="password" required>
+        <input formControlName="password" type="password" required>
         <span></span>
         <label>Password</label>
       </div>
 
       <div class="pass">Forgot Password?</div>
-      <input class="login-button" type="button" value="Create account">
+      <button class="login-button">Login</button>
       <div class="signup-link">
         Not a member? <a [routerLink]="['/signup']">Signup</a>
       </div>
     </form>
+    <div *ngIf="errorMessage != null">{{errorMessage}}</div>
   </div>
 </div>
